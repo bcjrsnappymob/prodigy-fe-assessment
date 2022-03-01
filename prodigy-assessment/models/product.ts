@@ -1,4 +1,4 @@
-import { IconType } from "react-icons";
+import { Demographics } from "../constants/demographics";
 import { InsuranceStatus } from "../constants/product"
 
 export interface InsuranceItem {
@@ -12,6 +12,7 @@ export interface InsuranceItem {
 export interface InsuranceDetailItem extends InsuranceItem {
     description: string;
     benefits: string[];
+    demographics: Demographics[];
 }
 
 export interface BadgeProps {

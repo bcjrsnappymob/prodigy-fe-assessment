@@ -1,4 +1,16 @@
-import { Container, Box, Flex, Image, Heading, Text, Stack, Button, Badge } from "@chakra-ui/react";
+import { 
+    Container, 
+    Box, 
+    Flex, 
+    Image,
+    Heading,
+    Text,
+    Stack,
+    Button,
+    StackDivider,
+    UnorderedList,
+    ListItem,
+} from "@chakra-ui/react";
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next/types";
 import { useEffect } from "react";
 import { insuranceDetailItems } from "../../../data/mock-data";
@@ -36,15 +48,16 @@ const InsuranceDetailPage: NextPage = ({data}: InferGetServerSidePropsType<typeo
         <Container minW='100%' px={80} py={15} minH='100vh'>
             <Box>
                 <Flex width='100%' alignItems='center'>
-                    <Box>
+                    <Box mr={20}>
                         <Image 
                             src={`/images/${data.imageFile}`} 
                             alt={data.title}
+                            maxW='500'
                         />
                     </Box>
                     <Box>
                         <Flex flexDirection='column'>
-                            <Box display='flex' alignItems='baseline' mt={3}>
+                            <Box display='flex' alignItems='baseline' mb={3}>
                                 <BadgeStatus currentStatus={data.currentStatus}></BadgeStatus>
                             </Box>
                             <Heading as='h1'>{data.title}</Heading>
@@ -76,8 +89,39 @@ const InsuranceDetailPage: NextPage = ({data}: InferGetServerSidePropsType<typeo
                     </Box>
                 </Flex>
             </Box>
-            <Box>
-
+            <Box py={5}>
+                <Flex 
+                    flexDirection='column'
+                    alignItems='center'
+                >
+                    <Heading as='h4' size='md' mt={8} mb={20}>
+                        {`Why choose ${data.title} ?`}
+                    </Heading>
+                    <Box>
+                        <Stack direction='row' divider={<StackDivider borderColor='gray.200' />} spacing='100px'>
+                            <Box textAlign='center'>
+                                <Heading as='h6' size='md' mb={8}>Benefits</Heading>
+                                <UnorderedList textAlign='left'>
+                                    {
+                                        data.benefits.map((text: string, id: number) => {
+                                            return <ListItem key={id}>{text}</ListItem>;
+                                        })
+                                    }
+                                </UnorderedList>
+                            </Box>
+                            <Box textAlign='center'>
+                                <Heading as='h6' size='md' mb={8}>Suitable For</Heading>
+                                <UnorderedList textAlign='left'>
+                                    {
+                                        data.demographics.map((text: string, id: number) => {
+                                            return <ListItem key={id}>{text}</ListItem>;
+                                        })
+                                    }
+                                </UnorderedList>
+                            </Box>
+                        </Stack>
+                    </Box>
+                </Flex>
             </Box>
         </Container>
     );
