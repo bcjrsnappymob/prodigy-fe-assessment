@@ -1,10 +1,9 @@
-import { Box, Button, Container, Flex, IconButton, Input, InputGroup, InputRightElement, Stack, useColorModeValue, useDisclosure, Text } from '@chakra-ui/react';
+import { Box, Button, Container, Flex, IconButton, Stack, useColorModeValue, useDisclosure, Text } from '@chakra-ui/react';
 import {
     HamburgerIcon,
     CloseIcon,
-    SearchIcon
-  } from '@chakra-ui/icons';
-  import NextLink from 'next/link';
+} from '@chakra-ui/icons';
+import NextLink from 'next/link';
 
 export default function Navbar() {
     const { isOpen, onToggle } = useDisclosure()
@@ -47,21 +46,8 @@ export default function Navbar() {
               flex={{ base: 1, md: 0 }}
               justify={'flex-end'}
               direction={'row'}
-              spacing={6}>
-              <InputGroup w={60}>
-                <Input
-                  id="search"
-                  type="search"
-                  placeholder={'Search'}
-                  borderRadius={'full'}
-                  fontSize={14}
-                />
-                <InputRightElement as="button" type="submit" cursor="pointer">
-                  <NextLink href={'/products/search'} passHref>
-                    <SearchIcon color="black" />
-                  </NextLink>
-                </InputRightElement>
-              </InputGroup>
+              spacing={6}
+            >
               <Button
                 fontSize={'sm'}
                 fontWeight={400}
