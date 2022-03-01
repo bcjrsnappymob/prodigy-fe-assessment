@@ -10,7 +10,7 @@ export const ProductGrid = (props: ProductGridProps) => {
     }
 
     return (
-        <SimpleGrid columns={2} spacing={10}>
+        <SimpleGrid columns={props.numberOfColumns} spacing={10}>
             {
                 props.data.map((product, id) => {
                     return (

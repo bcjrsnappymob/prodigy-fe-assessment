@@ -3,6 +3,7 @@ import { Container, Flex, Heading, Box, Button } from '@chakra-ui/react';
 import { insuranceItems } from '../data/mock-data';
 import { ProductGrid } from '../components/products/ProductGrid';
 import { InsuranceItem } from '../models/product';
+import Link from 'next/link';
 
 const Home: NextPage = () => {
   const mockData: InsuranceItem[] = insuranceItems.slice(0, 6);
@@ -28,10 +29,12 @@ const Home: NextPage = () => {
         <Heading as='h4' mb={10}>
           Popular Insurance Packages
         </Heading>
-        <ProductGrid data={mockData}></ProductGrid>
-        <Button mt={10}>
-          View More Insurance Packages
-        </Button>
+        <ProductGrid data={mockData} numberOfColumns={2}></ProductGrid>
+        <Link href='/insurances' passHref>
+          <Button mt={10}>
+            View More Insurance Packages
+          </Button>
+        </Link>
       </Flex>
     </Container>
   )

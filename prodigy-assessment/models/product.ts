@@ -17,4 +17,5 @@ export interface BadgeProps {
 
 export interface ProductGridProps {
     data: InsuranceItem[];
+    numberOfColumns: number;
 }
