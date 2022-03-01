@@ -5,7 +5,7 @@ import { ProductGrid } from '../components/products/ProductGrid';
 import { InsuranceItem } from '../models/product';
 
 const Home: NextPage = () => {
-  const mockData: InsuranceItem[] = insuranceItems.slice(0, 3);
+  const mockData: InsuranceItem[] = insuranceItems.slice(0, 6);
   return (
     <Container minW='100%' p={0} minH='100vh'>
       <Box
