@@ -16,7 +16,7 @@ export const ProductGrid = (props: ProductGridProps) => {
                     return (
                         <ProductCard
                             key={id}
-                            icon={product.icon}
+                            imageFile={product.imageFile}
                             title={product.title}
                             currentStatus={product.currentStatus}
                         ></ProductCard>

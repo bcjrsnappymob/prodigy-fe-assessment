@@ -1,8 +1,8 @@
-import { Box, Icon, Badge, Container } from '@chakra-ui/react';
+import { Box, Image, Badge, Container } from '@chakra-ui/react';
 import { InsuranceStatus } from '../../../constants/product';
 import { BadgeProps, InsuranceItem } from '../../../models/product';
 
-export default function ProductCard(props: Pick<InsuranceItem, 'title' | 'currentStatus' | 'icon'>){
+export default function ProductCard(props: Pick<InsuranceItem, 'title' | 'currentStatus' | 'imageFile'>){
 
     const BadgeStatus = (props: BadgeProps) => {
 
@@ -36,7 +36,12 @@ export default function ProductCard(props: Pick<InsuranceItem, 'title' | 'curren
             display='flex' 
             justifyContent='center'
         >
-            <Icon as={props.icon} w={20} h={20}/>
+            <Image 
+                src={`/images/${props.imageFile}`} 
+                alt={props.title}
+                w={20} 
+                h={20}
+            />
             <Container ml={5}>
                 <Box
                     mt='1'

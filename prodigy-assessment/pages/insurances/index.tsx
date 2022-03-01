@@ -28,7 +28,6 @@ const InsuranceListingPage: NextPage = () => {
 
     useEffect(() => {
         document.title = 'ProdigiNow | Insurances';
-        console.log(searchBarValue);
     });
     
     return (

@@ -16,8 +16,9 @@ export const ProductListGrid = (props: ProductGridProps) => {
                     return (
                         <ProductListCard
                             key={id}
-                            icon={product.icon}
+                            imageFile={product.imageFile}
                             title={product.title}
+                            stub={product.stub}
                             currentStatus={product.currentStatus}
                         ></ProductListCard>
                     );
