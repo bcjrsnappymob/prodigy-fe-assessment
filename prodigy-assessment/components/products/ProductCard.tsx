@@ -2,7 +2,7 @@ import { Box, Icon, Badge } from '@chakra-ui/react';
 import { InsuranceStatus } from '../../constants/product';
 import { BadgeProps, InsuranceItem } from '../../models/product';
 
-export default function ProductCard(props: InsuranceItem){
+export default function ProductCard(props: Pick<InsuranceItem, 'title' | 'currentStatus' | 'icon'>){
 
     const BadgeStatus = (props: BadgeProps) => {
 
