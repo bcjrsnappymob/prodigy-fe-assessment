@@ -14,3 +14,7 @@ export interface InsuranceItem {
 export interface BadgeProps {
     currentStatus: InsuranceStatus;
 }
+
+export interface ProductGridProps {
+    data: InsuranceItem[];
+}

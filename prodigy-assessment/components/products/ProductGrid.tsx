@@ -1,9 +1,9 @@
 import { SimpleGrid } from "@chakra-ui/react";
-import { InsuranceItem } from "../../models/product";
+import { ProductGridProps } from "../../models/product";
 import ProductCard from "./ProductCard";
 
-export const ProductGrid = (props: InsuranceItem[]) => {
-    if (!props || props.length === 0) {
+export const ProductGrid = (props: ProductGridProps) => {
+    if (!props || !props.data || props.data.length === 0) {
         return (
             <template></template>
         );
@@ -12,7 +12,7 @@ export const ProductGrid = (props: InsuranceItem[]) => {
     return (
         <SimpleGrid columns={3} spacing={10}>
             {
-                props.map((product, id) => {
+                props.data.map((product, id) => {
                     return (
                         <ProductCard
                             key={id}
