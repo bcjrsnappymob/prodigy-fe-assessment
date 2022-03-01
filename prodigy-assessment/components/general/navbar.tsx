@@ -4,6 +4,7 @@ import {
     CloseIcon,
 } from '@chakra-ui/icons';
 import NextLink from 'next/link';
+import Link from 'next/link';
 
 export default function Navbar() {
     const { isOpen, onToggle } = useDisclosure()
@@ -48,6 +49,15 @@ export default function Navbar() {
               direction={'row'}
               spacing={6}
             >
+              <Link href='/insurances' passHref>
+                <Button
+                  fontSize={'sm'}
+                  fontWeight={400}
+                  variant={''}
+                  _hover={{textDecoration: 'none'}}>
+                  Insurances
+                </Button>
+              </Link>
               <Button
                 fontSize={'sm'}
                 fontWeight={400}
