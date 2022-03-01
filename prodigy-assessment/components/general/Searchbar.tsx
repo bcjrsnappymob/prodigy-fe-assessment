@@ -1,7 +1,12 @@
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
+import { ChangeEventHandler } from 'react';
 
-export default function SearchBar() {
+export type SearchBarProps = {
+    onSearch: ChangeEventHandler<HTMLInputElement>;
+};
+
+export default function SearchBar(props: SearchBarProps) {
     return (
         <InputGroup w={60}>
             <Input
@@ -10,6 +15,7 @@ export default function SearchBar() {
                 placeholder={'Search'}
                 borderRadius={'full'}
                 fontSize={14}
+                onChange={props.onSearch}
             />
             <InputRightElement as="button" type="submit" cursor="pointer">
                 <SearchIcon color="black" />

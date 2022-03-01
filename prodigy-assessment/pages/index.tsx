@@ -4,9 +4,13 @@ import { insuranceItems } from '../data/mock-data';
 import { ProductGrid } from '../components/products/ProductGrid';
 import { InsuranceItem } from '../models/product';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 const Home: NextPage = () => {
   const mockData: InsuranceItem[] = insuranceItems.slice(0, 6);
+  useEffect(() => {
+    document.title = 'ProdigiNow';
+  });
   return (
     <Container minW='100%' p={0} minH='100vh'>
       <Box

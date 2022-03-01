@@ -59,7 +59,6 @@ export default function Navbar() {
                 display={{ base: 'none', md: 'inline-flex' }}
                 fontSize={'sm'}
                 fontWeight={600}
-                color={'white'}
                 bg={'proPr.30'}
                 borderRadius={'full'}
                 px={6}
