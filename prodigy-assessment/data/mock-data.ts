@@ -21,7 +21,7 @@ export const insuranceItems: InsuranceItem[] = [
         stub: 'diabetes-go-away-insurance',
         title: 'Diabetes Go-Away Insurance',
         imageFile: 'diabetic-insurance.png',
-        currentStatus: InsuranceStatus.none,
+        currentStatus: InsuranceStatus.recommended,
     },
 ];
 
@@ -51,6 +51,6 @@ export const insuranceDetailItems: InsuranceDetailItem[] = [
         imageFile: 'diabetic-insurance.png',
         benefits: [ 'Premium Insurace for Diabetic Users', 'Cover 99% of Diabetes Medicine and Tests'],
         description: 'Wish away your pains with this insurance!',
-        currentStatus: InsuranceStatus.none,
+        currentStatus: InsuranceStatus.recommended,
     },
 ];

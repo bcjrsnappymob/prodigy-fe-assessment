@@ -1,5 +1,5 @@
 export enum InsuranceStatus {
     popular = 'Popular',
     new = 'New',
-    none = 'None',
+    recommended = 'Recommended',
 }

@@ -1,34 +1,10 @@
-import { Box, Image, Badge, Button, Stack} from '@chakra-ui/react';
+import { Box, Image, Button, Stack} from '@chakra-ui/react';
 import Link from 'next/link';
-import { InsuranceStatus } from '../../../constants/product';
-import { BadgeProps, InsuranceItem } from '../../../models/product';
+import { InsuranceItem } from '../../../models/product';
 import { FaPlus } from 'react-icons/fa';
+import { BadgeStatus } from '../../general/BadgeStatus';
 
 export default function ProductListCard(props: Pick<InsuranceItem, 'title' | 'currentStatus' | 'imageFile' | 'stub'>){
-
-    const BadgeStatus = (props: BadgeProps) => {
-
-        if (props.currentStatus === InsuranceStatus.new) {
-            return (
-                <Badge borderRadius='full' px='2' colorScheme='teal'>
-                    { props.currentStatus }
-                </Badge>
-            );
-        }
-
-        if (props.currentStatus === InsuranceStatus.popular) {
-            return (
-                <Badge borderRadius='full' px='2' colorScheme='red'>
-                    { props.currentStatus }
-                </Badge>
-            );
-        }
-
-        return (
-            <template></template>
-        );
-    }
-
     return (
         <Box 
             maxW='sm'
