@@ -1,7 +1,7 @@
 import { Container, Box, Flex, Heading } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { useEffect, useState, ChangeEvent } from 'react';
-import { ProductGrid } from '../../components/products/ProductGrid';
+import { ProductListGrid } from '../../components/products/listing/ProductListGrid';
 import { insuranceItems } from '../../data/mock-data';
 import { InsuranceItem } from '../../models/product';
 import SearchBar from '../../components/general/Searchbar';
@@ -18,11 +18,11 @@ const InsuranceListingPage: NextPage = () => {
         if (searchQuery.length === 0) {
             setInsurances(mockData);
         }
-
+        // Filter out data by title in lower case format
         const filteredInsurances = mockData.filter((item) => {
             return item.title.toLowerCase().includes(searchQuery);
         });
-
+        // Update insurance state with filteredInsurances
         setInsurances(filteredInsurances);
     };
 
@@ -48,7 +48,7 @@ const InsuranceListingPage: NextPage = () => {
                     justify={'center'}
                     direction={'column'}
                 >
-                    <ProductGrid data={insurances} numberOfColumns={3}></ProductGrid>
+                    <ProductListGrid data={insurances} numberOfColumns={3}></ProductListGrid>
                 </Flex>
             </Box>
         </Container>

@@ -1,5 +1,5 @@
 import { SimpleGrid } from "@chakra-ui/react";
-import { ProductGridProps } from "../../models/product";
+import { ProductGridProps } from "../../../models/product";
 import ProductCard from "./ProductCard";
 
 export const ProductGrid = (props: ProductGridProps) => {

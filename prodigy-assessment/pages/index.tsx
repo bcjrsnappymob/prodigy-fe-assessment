@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import { Container, Flex, Heading, Box, Button } from '@chakra-ui/react';
 import { insuranceItems } from '../data/mock-data';
-import { ProductGrid } from '../components/products/ProductGrid';
+import { ProductGrid } from '../components/products/home/ProductGrid';
 import { InsuranceItem } from '../models/product';
 import Link from 'next/link';
 import { useEffect } from 'react';
