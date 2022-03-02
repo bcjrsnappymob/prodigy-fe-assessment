@@ -8,7 +8,9 @@ export const cartReducer = createSlice({
     },
     reducers: {
         addToCart: (state, action) => {
-            state.items.push(action.payload as InsuranceItem);
+            if (!state.items.find((item) => { return item.id === action.payload.id })) {
+                state.items.push(action.payload as InsuranceItem);
+            }
         },
         removeFromCart: (state, action) => {
             const data = state.items.filter((item) => {
@@ -16,7 +18,7 @@ export const cartReducer = createSlice({
             });
             state.items = data;
         },
-        clearCart: (state, action) => {
+        clearCart: (state) => {
             state.items = [];
         }
     }

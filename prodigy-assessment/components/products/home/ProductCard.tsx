@@ -3,7 +3,11 @@ import { } from '../../../constants/product';
 import { InsuranceItem } from '../../../models/product';
 import { BadgeStatus } from '../../general/BadgeStatus';
 
-export default function ProductCard(props: Pick<InsuranceItem, 'title' | 'currentStatus' | 'imageFile'>){
+export type ProductCardProps = {
+    data: InsuranceItem;
+};
+
+export default function ProductCard(props: ProductCardProps){
 
     return (
         <Box 
@@ -15,8 +19,8 @@ export default function ProductCard(props: Pick<InsuranceItem, 'title' | 'curren
             justifyContent='center'
         >
             <Image 
-                src={`/images/${props.imageFile}`} 
-                alt={props.title}
+                src={`/images/${props.data.imageFile}`} 
+                alt={props.data.title}
                 w={20} 
                 h={20}
             />
@@ -29,10 +33,10 @@ export default function ProductCard(props: Pick<InsuranceItem, 'title' | 'curren
                     isTruncated
                     textAlign='left'
                 >
-                    {props.title}
+                    {props.data.title}
                 </Box>
                 <Box display='flex' alignItems='baseline' mt={2}>
-                    <BadgeStatus currentStatus={props.currentStatus}></BadgeStatus>
+                    <BadgeStatus currentStatus={props.data.currentStatus}></BadgeStatus>
                 </Box>
             </Container>
         </Box>

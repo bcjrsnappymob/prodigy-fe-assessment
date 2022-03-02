@@ -5,9 +5,13 @@ import {
 } from '@chakra-ui/icons';
 import NextLink from 'next/link';
 import Link from 'next/link';
+import { CartPopover } from '../products/cart/CartPopover';
+import { useSelector } from 'react-redux';
 
 export default function Navbar() {
     const { isOpen, onToggle } = useDisclosure()
+    const cartItems = useSelector((state: any) => { return state.cartStore.items });
+
     return (
       <Box>
         <Container maxW={'7xl'}>
@@ -49,6 +53,7 @@ export default function Navbar() {
               direction={'row'}
               spacing={6}
             >
+              <CartPopover data={cartItems}></CartPopover>
               <Link href='/insurances' passHref>
                 <Button
                   fontSize={'sm'}
