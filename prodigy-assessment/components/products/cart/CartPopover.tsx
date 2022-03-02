@@ -7,7 +7,6 @@ export type CartPopoverProps = {
 };
 
 export const CartPopover = (props: CartPopoverProps) => {
-    console.log(props);
     return (
         <Popover>
             <PopoverTrigger>

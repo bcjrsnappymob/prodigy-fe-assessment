@@ -1,13 +1,16 @@
 import { Box, Image, Container, Button, Text } from '@chakra-ui/react';
 import { InsuranceItem } from '../../../models/product';
 import { FaTrash } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import { removeFromCart } from '../../../stores/cart';
 
 export type CardCardProps = {
     data: InsuranceItem;
 }
 
 export default function CartCard(props: CardCardProps) {
-    console.log(props);
+    const dispatch = useDispatch();
+
     return (
         <Box
             borderWidth={1} 
@@ -47,6 +50,7 @@ export default function CartCard(props: CardCardProps) {
                         colorScheme='red' 
                         variant='solid' 
                         leftIcon={< FaTrash />}
+                        onClick={() => { dispatch(removeFromCart(props.data)) }}
                     >
                         Remove
                     </Button>
