@@ -52,7 +52,7 @@ export default function ProductListCard(props: ProductListCardProps){
                     colorScheme='orange' 
                     variant='solid' 
                     leftIcon={< FaPlus />} 
-                    onClick={() => dispatch(addToCart(props))}
+                    onClick={() => dispatch(addToCart(props.data))}
                 >
                     Add to Cart
                 </Button>

@@ -19,7 +19,6 @@ import { BadgeStatus } from "../../../components/general/BadgeStatus";
 import { addToCart } from "../../../stores/cart";
 import { useDispatch } from "react-redux";
 import { InsuranceDetailItem, InsuranceItem } from "../../../models/product";
-import { InsuranceStatus } from "../../../constants/product";
 
 // Make a mock API call with getServerSideProps
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {

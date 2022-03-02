@@ -59,7 +59,8 @@ export default function Navbar() {
                   fontSize={'sm'}
                   fontWeight={400}
                   variant={''}
-                  _hover={{textDecoration: 'none'}}>
+                  _hover={{textDecoration: 'none'}}
+                >
                   Insurances
                 </Button>
               </Link>
@@ -71,15 +72,11 @@ export default function Navbar() {
                 Sign In
               </Button>
               <Button
-                display={{ base: 'none', md: 'inline-flex' }}
                 fontSize={'sm'}
-                fontWeight={600}
-                bg={'proPr.30'}
-                borderRadius={'full'}
-                px={6}
-                _hover={{
-                  bg: 'proPr.20',
-                }}>
+                fontWeight={400}
+                variant={''}
+                _hover={{textDecoration: 'none'}}
+              >
                 Register
               </Button>
             </Stack>
