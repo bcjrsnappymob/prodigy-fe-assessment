@@ -1,4 +1,15 @@
-import { Popover, PopoverTrigger, Button, Portal, PopoverContent, PopoverArrow, PopoverHeader, PopoverCloseButton, PopoverBody } from '@chakra-ui/react';
+import { 
+    Popover, 
+    PopoverTrigger,
+    Button,
+    Portal,
+    PopoverContent,
+    PopoverArrow,
+    PopoverHeader,
+    PopoverCloseButton,
+    PopoverBody,
+    Text 
+} from '@chakra-ui/react';
 import { InsuranceItem } from '../../../models/product';
 import CartCard from './CartCard';
 
@@ -7,6 +18,25 @@ export type CartPopoverProps = {
 };
 
 export const CartPopover = (props: CartPopoverProps) => {
+
+    const cartItems = (props: CartPopoverProps) => {
+        if (props.data.length === 0) {
+            return (
+                <PopoverBody>
+                    <Text>Cart is Empty</Text>
+                </PopoverBody>
+            );
+        }
+
+        return (
+            <PopoverBody>
+                { props.data.map((item: InsuranceItem, id: number) => {
+                    return <CartCard key={id} data={item}></CartCard>
+                }) }
+            </PopoverBody>
+        );
+    }
+
     return (
         <Popover>
             <PopoverTrigger>
@@ -24,11 +54,7 @@ export const CartPopover = (props: CartPopoverProps) => {
                     <PopoverArrow></PopoverArrow>
                     <PopoverHeader>Cart Items</PopoverHeader>
                     <PopoverCloseButton></PopoverCloseButton>
-                    <PopoverBody>
-                        { props.data.map((item: InsuranceItem, id: number) => {
-                            return <CartCard key={id} data={item}></CartCard>
-                        }) }
-                    </PopoverBody>
+                    { cartItems(props) }
                 </PopoverContent>
             </Portal>
         </Popover>
