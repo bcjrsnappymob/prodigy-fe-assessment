@@ -16,6 +16,9 @@ import { useEffect } from "react";
 import { insuranceDetailItems } from "../../../data/mock-data";
 import { FaPlus, FaHeart, FaPhone } from 'react-icons/fa';
 import { BadgeStatus } from "../../../components/general/BadgeStatus";
+import { addToCart } from "../../../stores/cart";
+import { useDispatch } from "react-redux";
+import { InsuranceDetailItem, InsuranceItem } from "../../../models/product";
 
 // Make a mock API call with getServerSideProps
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
@@ -44,6 +47,21 @@ const InsuranceDetailPage: NextPage = ({data}: InferGetServerSidePropsType<typeo
         document.title = `ProdigiNow | ${data.title}`;
     });
 
+    const dispatch = useDispatch();
+
+    const addItemToCart = (data: InsuranceDetailItem) => {
+        // Parse Item to Match Insurance Item and add it to cart
+        const currentInsurance: InsuranceItem = {
+            id: data.id,
+            imageFile: data.imageFile,
+            title: data.title,
+            stub: data.stub,
+            currentStatus: data.currentStatus,
+        };
+
+        dispatch(addToCart(currentInsurance));
+    }
+
     return (
         <Container minW='100%' px={80} py={15} minH='100vh'>
             <Box>
@@ -67,6 +85,7 @@ const InsuranceDetailPage: NextPage = ({data}: InferGetServerSidePropsType<typeo
                                     colorScheme='orange' 
                                     variant='solid' 
                                     leftIcon={< FaPlus />} 
+                                    onClick={() => addItemToCart(data)}
                                 >
                                     Add to Cart
                                 </Button>

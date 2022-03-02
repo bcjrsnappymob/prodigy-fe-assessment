@@ -18,8 +18,3 @@ export interface InsuranceDetailItem extends InsuranceItem {
 export interface BadgeProps {
     currentStatus: InsuranceStatus;
 }
-
-export interface ProductGridProps {
-    data: InsuranceItem[];
-    numberOfColumns: number;
-}
